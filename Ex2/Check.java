@@ -8,10 +8,10 @@ public class Check {
         //ticketMachine.showMainMenu();
         //ticketMachine.showSideMenu();
 
-        /*メインメニューがストックできているか確認
+        /*メインメニューがストックできているか確認*/
         ticketMachine.stockMainMenu("牛丼", "L");
-        ticketMachine.getStockMenuList();
-        */
+        ticketMachine.getStockMainMenuList();
+        
 
         /*同じメニューがストックされているときにindexの早い方が削除されてしまう(指定して削除できるようにしたい)
         ticketMachine.stockMainMenu("牛丼", "L");

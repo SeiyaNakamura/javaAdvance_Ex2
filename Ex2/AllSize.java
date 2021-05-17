@@ -2,29 +2,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AllSize {
-    private List<Size> sizeList;
-    private Size sizeL;
-    private Size sizeM;
-    private Size sizeS;
+    private List<Size> sizeList = new ArrayList<>();
 
     AllSize() {
-        sizeList = new ArrayList<>();
-        sizeL = new Size("L", 100);
-        sizeM = new Size("M", 0);
-        sizeS = new Size("S", -50);
-        sizeList.add(sizeL);
-        sizeList.add(sizeM);
-        sizeList.add(sizeS);
+        sizeList.add(new Size("L", 100));
+        sizeList.add(new Size("M", 0));
+        sizeList.add(new Size("S", -50));
     }
 
     public Size returnSize(String name) {
-        if (name == "L") {
-            return sizeL;
-        } else if (name=="M") {
-            return sizeM;
-        } else {
-            return sizeS;
-        } 
+        for (Size size : sizeList) {
+            if (name.equals(size.getName())) {
+                return size;
+            } else {
+            }
+        }
+        return null;
     }
 
     public void showSizeList() {

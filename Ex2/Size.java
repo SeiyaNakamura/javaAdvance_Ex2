@@ -10,4 +10,8 @@ public class Size {
     public int getSizePrice() {
         return sizePrice;
     }
+
+    public String getName() {
+        return size;
+    }
 }

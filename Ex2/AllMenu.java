@@ -2,81 +2,62 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AllMenu {
-    private List<Menu> mainMenuList;
-    private List<Menu> sideMenuList;
-    MainMenu gyudon;
-    MainMenu butadon;
-    MainMenu curry;
-    SideMenu potatoSalad;
-    SideMenu greenSalad;
-    SideMenu misoSoup;
-    SideMenu porkSoup;
+    private List<MainMenu> mainMenuList = new ArrayList<>();
+    private List<SideMenu> sideMenuList = new ArrayList<>();
 
-    AllMenu() {
-        mainMenuList = new ArrayList<>();
-        gyudon = new MainMenu("牛丼", 380);
-        butadon = new MainMenu("豚丼", 400);
-        curry = new MainMenu("カレー", 450);
-        mainMenuList.add(gyudon);
-        mainMenuList.add(butadon);
-        mainMenuList.add(curry);
+    public AllMenu() {
+        mainMenuList.add(new MainMenu("牛丼", 380));
+        mainMenuList.add(new MainMenu("豚丼", 400));
+        mainMenuList.add(new MainMenu("カレー", 450));
 
-        sideMenuList = new ArrayList<>();
-        potatoSalad = new SideMenu("ポテトサラダ", 200);
-        greenSalad = new SideMenu("グリーンサラダ", 150);
-        misoSoup = new SideMenu("味噌汁", 50);
-        porkSoup = new SideMenu("豚汁", 150);
-        sideMenuList.add(potatoSalad);
-        sideMenuList.add(greenSalad);
-        sideMenuList.add(misoSoup);
-        sideMenuList.add(porkSoup);
+        sideMenuList.add(new SideMenu("ポテトサラダ", 200));
+        sideMenuList.add(new SideMenu("グリーンサラダ", 150));
+        sideMenuList.add(new SideMenu("味噌汁", 50));
+        sideMenuList.add(new SideMenu("豚汁", 150));
     }
 
     public MainMenu returnMainMenu(String name) {
-        if (name == "牛丼") {
-            return gyudon;
-        } else if (name == "豚丼") {
-            return butadon;
-        } else {
-            return curry;
+        for (MainMenu menu : mainMenuList) {
+            if (name.equals(menu.getName())) {
+                return menu;
+            } else {
+            }
         }
+        return null;
     }
 
     public SideMenu returnSideMenu(String name) {
-        if (name == "ポテトサラダ") {
-            return potatoSalad;
-        } else if (name == "グリーンサラダ") {
-            return greenSalad;
-        } else if (name == "味噌汁") {
-            return misoSoup;
-        } else {
-            return porkSoup;
+        for (SideMenu menu : sideMenuList) {
+            if (name.equals(menu.getName())) {
+                return menu;
+            } else {
+            }
         }
+        return null;
     }
 
     public void showAllMenuList() {
         System.out.println("メインメニュー");
-        for (Menu menu : mainMenuList) {
+        for (MainMenu menu : mainMenuList) {
             System.out.println(String.format("%s : %d￥", menu.name, menu.price));
         }
         System.out.print("\n");
         System.out.println("サイドメニュー");
-        for (Menu menu : sideMenuList) {
+        for (SideMenu menu : sideMenuList) {
             System.out.println(String.format("%s : %d￥", menu.name, menu.price));
         }
-
     }
 
     public void showMainMenuList() {
         System.out.println("メインメニュー");
-        for (Menu menu : mainMenuList) {
+        for (MainMenu menu : mainMenuList) {
             System.out.println(String.format("%s : %d￥", menu.name, menu.price));
         }
     }
 
     public void showSideMenuList() {
         System.out.println("サイドメニュー");
-        for (Menu menu : sideMenuList) {
+        for (SideMenu menu : sideMenuList) {
             System.out.println(String.format("%s : %d￥", menu.name, menu.price));
         }
     }
